@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Меню на ресторант Иван</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fafafa;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    .item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .info {
+      padding: 15px;
+      text-align: center;
+    }
+    .info h3 {
+      margin: 0;
+      color: #333;
+    }
+    .price {
+      color: #888;
+      margin: 8px 0;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #43a047;
+    }
+    .notification {
+      text-align: center;
+      color: #4CAF50;
+      font-weight: bold;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍽️ Меню</h1>
+
+  <div class="item">
+    <img src="images/margarita.jpg" alt="Пица Маргарита">
+    <div class="info">
+      <h3>Пица Маргарита</h3>
+      <p class="price">12.00 лв</p>
+      <button onclick="order('Пица Маргарита', 12)">Поръчай</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/carbonara.jpg" alt="Паста Карбонара">
+    <div class="info">
+      <h3>Паста Карбонара</h3>
+      <p class="price">14.50 лв</p>
+      <button onclick="order('Паста Карбонара', 14.5)">Поръчай</button>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/tiramisu.jpg" alt="Тирамису">
+    <div class="info">
+      <h3>Тирамису</h3>
+      <p class="price">6.00 лв</p>
+      <button onclick="order('Тирамису', 6)">Поръчай</button>
+    </div>
+  </div>
+
+  <p id="message" class="notification">✅ Добавено в поръчката!</p>
+
+  <script>
+    function order(item, price) {
+      const msg = document.getElementById('message');
+      msg.innerText = `✅ ${item} (${price.toFixed(2)} лв) добавено в поръчката!`;
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 2500);
+    }
+  </script>
+</body>
+</html>
